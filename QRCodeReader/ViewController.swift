@@ -96,10 +96,8 @@ class ViewController: UIViewController {
 
 extension ViewController: AVCaptureMetadataOutputObjectsDelegate {
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        
-        if metadataObjects == nil || metadataObjects.count == 0 {
-            
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        if metadataObjects.isEmpty {
             return
         }
         
@@ -114,6 +112,5 @@ extension ViewController: AVCaptureMetadataOutputObjectsDelegate {
                 }
             }
         }
-        
     }
 }
